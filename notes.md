@@ -9,4 +9,3 @@
 
 * Let folks add check list items
 * Add links and bank of resources
-* 
