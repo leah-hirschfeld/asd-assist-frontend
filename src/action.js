@@ -10,7 +10,7 @@ class Action {
         this.categoryID = category_id;
 
         this.element = document.createElement('li');
-        this.element.id = 'action-${id}';
+        this.element.id = `action-${id}`;
         this.element.dataset.id = id;
 
         this.element.addEventListener('click', this.handleActionClick);
@@ -19,24 +19,25 @@ class Action {
     }
 
     handleActionClick = (e) => {
-        if (e.target.innerText === "Edit")
-        this.createEditFields(e.target);
-        e.target.innerText = "Save";
+        if (e.target.innerText === "Edit"){
+        this.createEditFields(e.target)
+        e.target.innerText = "Save"
     }else if(e.target.innerText === "Delete"){
         this.deleteItem(e);
     }else if(e.target.innerText === "Save"){
         this.saveUpdatedItem();
         e.target.innerText = 'Edit';
     }
+}
 
     renderLi(){
-        this.element.innerHTML = 
+        this.element.innerHTML = `
         <div data-id="${this.id}">
-            <span class="name">${this.name}</span>:
+            <span class="name">${this.name}</span>
             <span class="description">${this.description}</span>
         </div>
         <button class="edit" data-id="${this.id}">Edit</button>
-        <button class="delete" data-id="${this.id}">Delete</button>
+        <button class="delete" data-id="${this.id}">Delete</button>`
     
         return this.element;
     }
@@ -52,9 +53,9 @@ class Action {
         const name = li.querySelector('.name').innerText;
         const description = li.querySelector('.description').innerText;
 
-        div.innerHTML = 
+        div.innerHTML = `
         <input type = "text" name = "name" class = "edit-name" value = "${name}"></input>
-        <input type = "text" name = "description" class = "edit-description" value = "${description}"></input>
+        <input type = "text" name = "description" class = "edit-description" value = "${description}"></input>`
 
     }
 
@@ -81,7 +82,7 @@ static filterByCategory(filteredCategory) {
             }
         }
     } else {
-        for (Const action of Action.all) {
+        for (const action of Action.all) {
             item.element.style.display = "";
         }
     }

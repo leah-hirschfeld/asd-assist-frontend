@@ -48,7 +48,7 @@ class ActionApi {
             headers: {
                 "Content-Type": "application/json",
                 Accept: "application/json"},
-                body: JSON.stringify(actionInfo);
+                body: JSON.stringify(actionInfo)
             }
 
         fetch(`${this.baseURL}/${item.id}`, configObj)
