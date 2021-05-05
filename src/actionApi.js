@@ -1,11 +1,11 @@
 class ActionApi {
-    static baseURL = 'http://localhost:3000/items'
+    static baseURL = 'http://localhost:3000/actions'
 
-    static getActions() {
+    static getActions(){
         fetch(this.baseURL)
         .then(resp => resp.json())
         .then(data => {
-            data["data"].forEach(item => {
+            data["data"].forEach(action => {
                 const i = new Action({id: action.id,...action.attributes})
                 i.attachToDom()
             })
@@ -20,7 +20,7 @@ class ActionApi {
         }
 
         const configObj = {
-            method = 'POST',
+            method: 'POST',
             headers: {
                 "Content-Type": "application/json",
                 Accept: "application/json"},
