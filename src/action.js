@@ -39,7 +39,7 @@ class Action {
         <button class="edit" data-id="${this.id}">Edit</button>
         <button class="delete" data-id="${this.id}">Delete</button>`
     
-        return this.element;
+        return this.element
     }
 
     attachToDom(){
@@ -54,8 +54,8 @@ class Action {
         const description = li.querySelector('.description').innerText;
 
         div.innerHTML = `
-        <input type = "text" name = "name" class = "edit-name" value = "${name}"></input>
-        <input type = "text" name = "description" class = "edit-description" value = "${description}"></input>`
+        <input type = "text" name = "name" class = "edit-name" value = "${name}">
+        <input type = "text" name = "description" class = "edit-description" value = "${description}">`
 
     }
 
